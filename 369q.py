@@ -1,3 +1,6 @@
+# coding:utf-8
+
+import sys
 import requests
 import base64
 import json
