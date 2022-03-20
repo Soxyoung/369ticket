@@ -147,7 +147,7 @@ def main(rst, sendKey, user, pwd, targetTime):
     token = str(auth).replace('Bearer ', "")
 
     url = getPreUrl(token)
-    print(url)
+#     print(url)
     rst += url + '\n\r\n'
     
     if (targetTime == "13:00:00") :
@@ -173,11 +173,11 @@ def judge():
 
     currentday =calendar.weekday(year,month,day)
 
+    print("今天是周" + str(currentday + 1) + "！")
     if currentday >= 5:
-        print("今天是周末！")
-        # exit(0)
-        
-    return beijing_now
+        exit(0)
+    if currentday < 5:
+        return beijing_now
 
 if __name__ == '__main__':
 
@@ -199,7 +199,7 @@ if __name__ == '__main__':
     while True:
         tar = datetime.strptime(targetTime, "%H:%M:%S")
         now = datetime.strptime(str(beijing_now), "%H:%M:%S")
-        if abs(now - tar) <= timedelta(seconds=81):
+        if abs(now - tar) <= timedelta(seconds=125):
             main(rst, key, user, pwd, targetTime)
             main(rst, key1, user1, pwd, targetTime)
             break
