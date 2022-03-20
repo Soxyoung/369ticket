@@ -44,6 +44,11 @@ def beijing(sec, what):
     beijing_time = datetime.datetime.now() + datetime.timedelta(hours=8)
     return beijing_time.timetuple()
 
+SHA_TZ = timezone(
+    timedelta(hours=8),
+    name='Asia/Shanghai',
+)
+
 def get_jwt_token():
     try:
         time_369 = time.strftime("%a, %d %b %Y %H:%M:%S GMT", time.localtime())
@@ -154,16 +159,28 @@ def main(rst, sendKey, user, pwd, targetTime):
     title = u"369抢兑"
     content = rst
     sendSeverJ(sendKey, title, content)
-
-if __name__ == '__main__':
-
-    SHA_TZ = timezone(
-        timedelta(hours=8),
-        name='Asia/Shanghai',
-    )
+    
+def judge():
     # 协调世界时
     utc_now = datetime.utcnow().replace(tzinfo=timezone.utc)
     beijing_now = utc_now.astimezone(SHA_TZ)
+    currentdate = beijing_now.today()
+
+    year= currentdate.year
+    month = currentdate.month
+    day = currentdate.day
+
+    currentday =calendar.weekday(year,month,day)
+
+    if currentday >= 5:
+        print("今天是周末！")
+        # exit(0)
+        
+    return beijing_now
+
+if __name__ == '__main__':
+
+    beijing_now = judge()
     print(beijing_now, beijing_now.tzname())
     print(beijing_now.strftime('%Y-%m-%d %H:%M:%S.%f'))
     rst = beijing_now.strftime('%Y-%m-%d %H:%M:%S.%f')
