@@ -10,10 +10,10 @@ on:
   pull_request:
     branches: [ master ]
   # 可以设定定时任务执行
-  schedule:
-    # UTC 10 点 46 定期执行一次，跟北京时间大概相距8小时，但因为排队可能会稍微延后半小时左右
-    # 即北京时间 18 点 46 以后
-    - cron: '46 10 * * *'
+#   schedule:
+#     # UTC 10 点 46 定期执行一次，跟北京时间大概相距8小时，但因为排队可能会稍微延后半小时左右
+#     # 即北京时间 18 点 46 以后
+#     - cron: '46 10 * * *'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
