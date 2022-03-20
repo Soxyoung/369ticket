@@ -132,7 +132,7 @@ def sendSeverJ(sendKey, title, content):
     }
     req = requests.post(api, data = data)
 
-def main(rst, sendKey, user, pwd):
+def main(rst, sendKey, user, pwd, targetTime):
     rst += "----pre----" + '\n\r\n'
     auth = getAuth(user, pwd)
     token = str(auth).replace('Bearer ', "")
@@ -140,8 +140,14 @@ def main(rst, sendKey, user, pwd):
     url = getPreUrl(token)
     print(url)
     rst += url + '\n\r\n'
-    rst += url_13 + '\n\r\n'
-
+    
+    if (targetTime == "13:00:00") :
+        rst += url_13 + '\n\r\n'
+    if (targetTime == "16:00:00") :
+        rst += url_16 + '\n\r\n'
+    if (targetTime == "19:00:00") :
+        rst += url_19 + '\n\r\n'
+        
     title = u"369抢兑"
     content = rst
     sendSeverJ(sendKey, title, content)
@@ -160,18 +166,21 @@ if __name__ == '__main__':
     rst = beijing_now.strftime('%Y-%m-%d %H:%M:%S.%f')
     rst += '\n\r\n'
 
-    atpAuthToken = sys.argv[1]
-    mobile = sys.argv[2]
-    userId = sys.argv[3]
+    targetTime = sys.argv[1]
+    user = sys.argv[2]
+    user1 = sys.argv[3]
+    pwd = sys.argv[4]
+    key = sys.argv[5]
+    key1 = sys.argv[6]
 
     utc_now = datetime.utcnow().replace(tzinfo=timezone.utc)
     beijing_now = utc_now.astimezone(SHA_TZ).strftime("%H:%M:%S")
     while True:
-        tar = datetime.strptime("16:00:00", "%H:%M:%S")
+        tar = datetime.strptime(targetTime, "%H:%M:%S")
         now = datetime.strptime(str(beijing_now), "%H:%M:%S")
         if abs(now - tar) <= timedelta(seconds=81):
-            main(rst, 'SCT128241Tk0T25aj6PpO0iE47m7ZzFXaV', '13863408958', 's6235066!')
-            main(rst, 'SCT131018TlSrbFmVXJWc5UaH63FPVwAED', '13346342695', 's6235066!')
+            main(rst, key, user, pwd, targetTime)
+            main(rst, key1, user1, pwd, targetTime)
             break
         time.sleep(10)
         utc_now = datetime.utcnow().replace(tzinfo=timezone.utc)
