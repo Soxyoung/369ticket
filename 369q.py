@@ -134,7 +134,7 @@ def getPreUrl(token):
         pass
 
 def sendSeverJ(sendKey, title, content):
-    api = "https://sc.ftqq.com/" + sendKey + ".send"
+    api = "https://sctapi.ftqq.com/" + sendKey + ".send"
     data = {
        "text":title,
        "desp":content
