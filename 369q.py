@@ -199,7 +199,7 @@ if __name__ == '__main__':
     while True:
         tar = datetime.strptime(targetTime, "%H:%M:%S")
         now = datetime.strptime(str(beijing_now), "%H:%M:%S")
-        if abs(now - tar) <= timedelta(seconds=186):
+        if abs(now - tar) <= timedelta(seconds=179):
             main(rst, key, user, pwd, targetTime)
             main(rst, key1, user1, pwd, targetTime)
             break
