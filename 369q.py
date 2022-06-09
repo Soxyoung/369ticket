@@ -36,9 +36,9 @@ geo_dict = [
     "F%K)2r`",
     "F%Ma4SQ"
 ]
-url_13 = 'https://80648.activity-42.m.duiba.com.cn/seckw/v2/orderConfirm?appItemId=183234999342009&payType=3&actId=27303&vipFlag=false&Qhkey=null&strategyContent=&packId=&appSkuId=307289'
-url_16 = 'https://80648.activity-42.m.duiba.com.cn/seckw/v2/orderConfirm?appItemId=176551240738479&payType=3&actId=27300&vipFlag=false&Qhkey=null&strategyContent=&packId=&appSkuId=272364'
-url_19 = 'https://80648.activity-42.m.duiba.com.cn/seckw/v2/orderConfirm?appItemId=183235529916864&payType=3&actId=27214&vipFlag=false&Qhkey=null&strategyContent=&packId=&appSkuId=307292'
+url_13 = 'https://80648.activity-42.m.duiba.com.cn/seckw/v2/orderConfirm?appItemId=183234999342009&payType=3&actId=31620&vipFlag=false&Qhkey=null&strategyContent=&packId=&appSkuId=307289'
+url_16 = 'https://80648.activity-42.m.duiba.com.cn/seckw/v2/orderConfirm?appItemId=176551240738479&payType=3&actId=31587&vipFlag=false&Qhkey=null&strategyContent=&packId=&appSkuId=272364'
+url_19 = 'https://80648.activity-42.m.duiba.com.cn/seckw/v2/orderConfirm?appItemId=183235529916864&payType=3&actId=31588&vipFlag=false&Qhkey=null&strategyContent=&packId=&appSkuId=307292'
 
 # 在容器里运行时时间为 UTC 时间，不是北京时间，需要进行调整
 def beijing(sec, what):
